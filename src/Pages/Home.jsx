@@ -18,7 +18,7 @@ const Home = () => {
     // const data = await fetch(
     //   `https://remotive.io/api/remote-jobs?page=${page}&limit=5`
     // );
-    const data = await fetch(`https://remotive.io/api/remote-jobs?limit=500`);
+    const data = await fetch(`https://remotive.io/api/remote-jobs`);
     const json = await data.json();
     setJobs(json.jobs);
   };
@@ -37,7 +37,7 @@ const Home = () => {
 
   // Radio Based Button Filtering
   const handleChange = (e) => {
-    setSelectedCategory(e.target.value);
+    setSelectedCategory(e.target.value === "All" ? null : e.target.value);
   };
 
   // Button Based Filtering
@@ -78,7 +78,7 @@ const Home = () => {
       <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">
         {/* Left Slider  */}
         <div className="bg-white p-4 rounded">
-          <Sidebar />
+          <Sidebar handleChange={handleChange} handleClick={handleClick} />
         </div>
 
         {/* Job Carts  */}

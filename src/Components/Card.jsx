@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { BiCategory } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
 import { FiClock, FiMapPin } from "react-icons/fi";
 import { MdAttachMoney } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -16,7 +15,7 @@ const Card = ({ data }) => {
   };
 
   return (
-    <section className="card">
+    <section className="bg-white mb-1 p-6 rounded-lg flex gap-6 justify-start">
       <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
         <img src={`https://remotive.com/job/${data.id}/logo`} alt="logo" />
         <div>
@@ -41,7 +40,14 @@ const Card = ({ data }) => {
               <BiCategory /> {data.category}
             </span>
             <span className="flex items-center gap-2">
-              <MdAttachMoney /> {data.salary ? data.salary : "Negotiable"}
+              <MdAttachMoney />{" "}
+              {data.salary
+                ? data.salary
+                    .replace("_", " ")
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")
+                : "Negotiable"}
             </span>
           </div>
 

@@ -9,8 +9,6 @@ const Pagination = ({
   itemsPerPage,
   nextPage,
 }) => {
-  console.log(currentPage);
-
   return (
     <>
       {result.length > 0 ? (

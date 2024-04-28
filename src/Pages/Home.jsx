@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Banner from "../Components/Banner";
 import Card from "../Components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../Sidebar/Sidebar";
 import Pagination from "../Components/Pagination";
+import Newsletter from "../Components/Newsletter";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 500;
+  const itemsPerPage = 50;
 
   useEffect(() => {
     setIsLoading(true);
@@ -106,7 +108,7 @@ const Home = () => {
       {/* Main Content  */}
       <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">
         {/* Left Slider  */}
-        <div className="bg-white p-4 rounded">
+        <div className="bg-white p-4 rounded h-fit">
           <Sidebar handleChange={handleChange} handleClick={handleClick} />
         </div>
 
@@ -130,7 +132,9 @@ const Home = () => {
         </div>
 
         {/* Right Slider  */}
-        <div className="bg-white p-4 rounded">Right</div>
+        <div className="bg-white p-4 rounded">
+          <Newsletter />
+        </div>
       </div>
     </div>
   );

@@ -3,24 +3,28 @@ import Banner from "../Components/Banner";
 import Card from "../Components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../Sidebar/Sidebar";
+import Pagination from "../Components/Pagination";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
-  // console.log(jobs);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 500;
 
   useEffect(() => {
-    getJobs(currentPage);
+    setIsLoading(true);
+    getJobs();
   }, [currentPage]);
 
-  const getJobs = async (page) => {
+  const getJobs = async () => {
     // const data = await fetch(
     //   `https://remotive.io/api/remote-jobs?page=${page}&limit=5`
     // );
     const data = await fetch(`https://remotive.io/api/remote-jobs`);
     const json = await data.json();
     setJobs(json.jobs);
+    setIsLoading(false);
   };
 
   // handle input changes
@@ -42,7 +46,28 @@ const Home = () => {
 
   // Button Based Filtering
   const handleClick = (e) => {
-    setSelectedCategory(e.target.value);
+    setSelectedCategory(e.target.value === "All" ? null : e.target.value);
+  };
+
+  // Calculate teh index range
+  const calculatePageRange = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return { startIndex, endIndex };
+  };
+
+  // Next page function
+  const nextPage = () => {
+    if (currentPage < Math.ceil(filteredJobs.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Previous page function
+  const previousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   // Main Functions
@@ -65,6 +90,10 @@ const Home = () => {
       console.log(filteredJobss);
     }
 
+    // Slice the data based on current page
+    const { startIndex, endIndex } = calculatePageRange();
+    filteredJobss = filteredJobss.slice(startIndex, endIndex);
+
     return filteredJobss.map((data, index) => <Card key={index} data={data} />);
   };
 
@@ -83,7 +112,21 @@ const Home = () => {
 
         {/* Job Carts  */}
         <div className="col-span-2 p-4 pt-0 rounded-sm">
-          <Jobs result={result} />
+          <div className="flex mb-4 justify-between items-center">
+            <h1 className="text-primary font-bold">
+              <span className="text-red text-3xl">{result.length}</span> Jobs
+            </h1>
+            {/* Pagination  */}
+            <Pagination
+              result={result}
+              previousPage={previousPage}
+              currentPage={currentPage}
+              filteredJobs={filteredJobs}
+              itemsPerPage={itemsPerPage}
+              nextPage={nextPage}
+            />
+          </div>
+          <Jobs result={result} isLoading={isLoading} />
         </div>
 
         {/* Right Slider  */}

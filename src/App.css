@@ -113,7 +113,7 @@ li {
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #d40002;
 }
 
 .checkmark:after {

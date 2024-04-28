@@ -1,10 +1,14 @@
 import React from "react";
 import Input from "../Components/Input";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Location = ({ handleChange }) => {
   return (
     <div>
-      <h4 className="textlg font-medium mb-2">Location</h4>
+      <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+        <FaLocationDot />
+        Location
+      </h3>
 
       <div>
         <Input

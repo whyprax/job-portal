@@ -20,13 +20,13 @@ const Card = ({ data }) => {
     <section className="bg-white mb-1 p-6 rounded-lg flex gap-6 justify-start">
       <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
         {/* Use cors-anywhere proxy to fetch logo image */}
-        <img
+        {/* <img
           src={`${proxyUrl}https://remotive.com/job/${data.id}/logo`}
           alt="logo"
-        />
+        /> */}
         <div>
           <h4 className="text-primary mb-1">{data.company_name}</h4>
-          <h3 className="text-lg text-primary font-semibold mb-2">
+          <h3 className="text-2xl text-primary font-semibold mb-2">
             {data.title}
           </h3>
 
@@ -58,7 +58,7 @@ const Card = ({ data }) => {
           </div>
 
           <p className="text-primary/70 text-base">
-            {stripHtmlTags(description).split(" ").slice(0, 12).join(" ")} .....
+            {stripHtmlTags(description).split(" ").slice(0, 20).join(" ")} .....
           </p>
         </div>
       </Link>

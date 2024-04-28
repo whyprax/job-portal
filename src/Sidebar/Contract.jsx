@@ -1,11 +1,15 @@
 import React from "react";
 import Input from "../Components/Input";
 import Button from "./Button";
+import { FaFileContract } from "react-icons/fa6";
 
 const Contract = ({ handleChange, handleClick }) => {
   return (
     <div>
-      <h4 className="textlg font-medium mb-2">Employement Type</h4>
+      <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+        <FaFileContract />
+        Type of Employement
+      </h3>
 
       <div className="flex flex-col">
         <Button onClickHandler={handleClick} value="All" title="All" />

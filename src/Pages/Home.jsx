@@ -116,7 +116,7 @@ const Home = () => {
         <div className="col-span-2 p-4 pt-0 rounded-sm">
           <div className="flex mb-4 justify-between items-center">
             <h1 className="text-primary font-bold">
-              <span className="text-red text-3xl">{result.length}</span> Jobs
+              <span className="text-red text-3xl">{jobs.length}</span> Jobs
             </h1>
             {/* Pagination  */}
             <Pagination
@@ -132,7 +132,7 @@ const Home = () => {
         </div>
 
         {/* Right Slider  */}
-        <div className="bg-white p-4 rounded">
+        <div className="p-4 pt-0 rounded">
           <Newsletter />
         </div>
       </div>

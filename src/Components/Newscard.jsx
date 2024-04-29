@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Newscard = ({ item }) => {
-  console.log(item);
+  // console.log(item);
 
   return (
     <section className="bg-white mb-1 p-6 rounded-lg flex gap-6 justify-start">

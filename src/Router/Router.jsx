@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../Pages/Home";
 import About from "../Pages/About";
 import PostJob from "../Pages/PostJob";
+import Login from "../Components/Login";
 
 const router = Provider([
   {

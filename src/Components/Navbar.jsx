@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
+import Login from "./Login";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,15 +42,16 @@ const Navbar = () => {
 
         {/* buttons */}
         <div className="text-base text-primary font-medium space-x-2 hidden md:block">
-          <Link to="/log-in" className="font-medium border-2 p-2 rounded-md">
+          {/* <Link to="/log-in" className="font-medium border-2 p-2 rounded-md">
             Log in
-          </Link>
-          <Link
+          </Link> */}
+          <Login />
+          {/* <Link
             to="/sign-up"
             className="font-medium bg-red text-white p-2 rounded-md"
           >
             Sign up
-          </Link>
+          </Link> */}
         </div>
       </nav>
 

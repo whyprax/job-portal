@@ -7,7 +7,7 @@ const Login = () => {
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const [userDetails, setUserDetails] = useState({}); // Initialize with an empty object
-  console.log(userDetails);
+  // console.log(userDetails);
   const [error, setError] = useState(null); // State for handling errors
 
   useEffect(() => {

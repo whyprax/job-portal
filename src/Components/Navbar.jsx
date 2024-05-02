@@ -19,7 +19,10 @@ const Navbar = () => {
     <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <nav className="justify-between items-center pt-3 pb-6 hidden sm:flex">
         <a href="/">
-          <img src="public\images 1.png" className="w-18" />
+          <span className="text-red font-bold uppercase">Japan</span>
+          <span>Dream Jobs</span>
+
+          {/* <img src="public\images 1.png" className="w-18" /> */}
         </a>
 
         {/* nav items for large devices */}

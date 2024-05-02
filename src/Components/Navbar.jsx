@@ -41,16 +41,7 @@ const Navbar = () => {
 
         {/* buttons */}
         <div className="text-base text-primary font-medium space-x-2 hidden md:block">
-          {/* <Link to="/log-in" className="font-medium border-2 p-2 rounded-md">
-            Log in
-          </Link> */}
           <Login />
-          {/* <Link
-            to="/sign-up"
-            className="font-medium bg-red text-white p-2 rounded-md"
-          >
-            Sign up
-          </Link> */}
         </div>
       </nav>
 
@@ -94,15 +85,7 @@ const Navbar = () => {
             <button className="text-white opacity-80">EN/JP</button>
           </div>
           <div className="text-base text-primary font-medium space-x-2  md:block mt-2">
-            <Link to="/log-in" className="">
-              Log in
-            </Link>
-            <Link
-              to="/sign-up"
-              className="font-medium bg-red text-white p-1 rounded-md"
-            >
-              Sign up
-            </Link>
+            <Login />
           </div>
         </div>
       </nav>

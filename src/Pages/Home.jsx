@@ -13,21 +13,24 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 50;
-
-  useEffect(() => {
-    setIsLoading(true);
-    getJobs();
-  }, [currentPage]);
+  // console.log(jobs);
 
   const getJobs = async () => {
     // const data = await fetch(
     //   `https://remotive.io/api/remote-jobs?page=${page}&limit=5`
     // );
-    const data = await fetch(`https://remotive.io/api/remote-jobs`);
+    const data = await fetch(
+      `https://job-portal-server-29o2.onrender.com/jobs`
+    );
     const json = await data.json();
-    setJobs(json.jobs);
+    setJobs(json);
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getJobs();
+  }, [currentPage]);
 
   // handle input changes
   const [query, setQuery] = useState("");
@@ -116,7 +119,8 @@ const Home = () => {
         <div className="col-span-2 p-4 pt-0 rounded-sm">
           <div className="flex mb-4 justify-between items-center">
             <h1 className="text-primary font-bold">
-              <span className="text-red text-3xl">{jobs.length}</span> Jobs
+              <span className="text-red text-3xl">{result.length}</span> /{" "}
+              {jobs.length}
             </h1>
             {/* Pagination  */}
             <Pagination

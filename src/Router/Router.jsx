@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import About from "../Pages/About";
 import PostJob from "../Pages/PostJob";
 import Login from "../Components/Login";
+import JobDetails from "../Pages/JobDetails";
 
 const router = Provider([
   {
@@ -21,6 +22,10 @@ const router = Provider([
       {
         path: "/post-job",
         element: <PostJob />,
+      },
+      {
+        path: "/job/:id",
+        element: <JobDetails />,
       },
     ],
   },

@@ -6,7 +6,8 @@ import { MdAttachMoney } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
-  // console.log(data);
+  const id = data.id;
+  // console.log(id);
   const { description } = data;
 
   const stripHtmlTags = (html) => {
@@ -14,15 +15,19 @@ const Card = ({ data }) => {
     return doc.body.textContent || "";
   };
 
-  const proxyUrl = "https://api.allorigins.win/get?url=";
+  // const proxyUrl = "https://api.allorigins.win/get?url=";
 
   return (
     <section className="bg-white mb-1 p-6 rounded-lg flex gap-6 justify-start">
-      <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
+      <Link
+        to={`/job/${id}`}
+        className="flex gap-4 flex-col sm:flex-row items-start"
+      >
         {/* Use cors-anywhere proxy to fetch logo image */}
         {/* <img
-          src={`${proxyUrl}https://remotive.com/job/${data.id}/logo`}
-          alt="logo"
+          crossOrigin="anonymous"
+          src={`https://remotive.com/job/${data.id}/logo`}
+          alt="logo" 
         /> */}
         <div>
           <h4 className="text-primary mb-1">{data.company_name}</h4>
